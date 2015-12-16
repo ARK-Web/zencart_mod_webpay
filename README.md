@@ -1,64 +1,64 @@
 # zencart_mod_webpay
 
-Zen Cart WebPay���σ��W���[��
+Zen Cart WebPay決済モジュール
 ====
 
-ark-web/zencart_mod_webpay - Zen Cart�œ��삷��WebPay���σ��W���[���ł��B
+ark-web/zencart_mod_webpay - Zen Cartで動作するWebPay決済モジュールです。
 
-���̌��σ��W���[���ł́A�ʏ�ۋ��ɂ̂ݑΉ����܂��B����ۋ��Ή��� info@ark-web.jp �܂ł����k���������B
-
-
-### �����
-* PHP 5.4 �ȏ�K�{
-* WebPay�񋟂�PHP���C�u�����iInstall �Q�Ɓj
+この決済モジュールでは、通常課金にのみ対応します。定期課金対応は info@ark-web.jp までご相談ください。
 
 
-### ����m�F�ϊ��F
-* Zen Cart 1.3.0.2 jp8 UTF��
-* Zen Cart 1.5.1   ���{���
+### 動作環境
+* PHP 5.4 以上必須
+* WebPay提供のPHPライブラリ（Install 参照）
 
 
-### �͂��߂���
-WebPay�����͂����灨 https://webpay.jp/
+### 動作確認済環境：
+* Zen Cart 1.3.0.2 jp8 UTF版
+* Zen Cart 1.5.1   日本語版
 
-+ 1.WebPay�֓o�^ or ���O�C�����Ă���
-+ 2.�u���[�U�[�ݒ�v���AAPI�L�[���T���Ă���
-+ 3.Zen Cart�̊Ǘ���ʂ́u���W���[�����x�����v����WebPay���W���[�����y�C���X�g�[���z����API�L�[�̓��e��ݒ肵�ĕۑ�����B
 
-�i�ڍׂ� Install �Q�Ɓj
+### はじめかた
+WebPay公式はこちら→ https://webpay.jp/
 
-![WebPay��API�L�[��Zen Cart��WebPay���W���[���֓o�^����](https://raw.github.com/wiki/ARK-Web/zencart_mod_webpay/images/setup.png)
++ 1.WebPayへ登録 or ログインしてから
++ 2.「ユーザー設定」より、APIキーを控えておき
++ 3.Zen Cartの管理画面の「モジュール＞支払い」からWebPayモジュールを【インストール】してAPIキーの内容を設定して保存する。
+
+（詳細は Install 参照）
+
+![WebPayのAPIキーをZen CartのWebPayモジュールへ登録する](https://raw.github.com/wiki/ARK-Web/zencart_mod_webpay/images/setup.png)
 
 
 ## Install
 
-**���t�@�C���EDB�̃o�b�N�A�b�v������Ă������ƁI**
+**※ファイル・DBのバックアップを取っておくこと！**
 
-+ 1.https://github.com/ARK-Web/zencart_mod_webpay/ �ɃA�N�Z�X���āyDownload ZIP�z�Ń_�E�����[�h���܂��B
-+ 2.zip���𓀂��� htdocs/includes/ �z����Zen Cart�փA�b�v���[�h���܂��B
-+ 3.composer�𗘗p�ł���ꍇ��3-1�ցA���p�ł��Ȃ��ꍇ��3-2�ɐi�݂܂��B
-+ 3-1.composer�𗘗p����WebPay��PHP���C�u����(https://webpay.jp/docs/libraries#php)���C���X�g�[�����܂��B
-  + htdocs/includes/modules/payment/ �� composer.json ����������Ă���̂ł���𗘗p���܂��B��������ƁAvendor�f�B���N�g��������܂��B
++ 1.https://github.com/ARK-Web/zencart_mod_webpay/ にアクセスして【Download ZIP】でダウンロードします。
++ 2.zipを解凍して htdocs/includes/ 配下をZen Cartへアップロードします。
++ 3.composerを利用できる場合は3-1へ、利用できない場合は3-2に進みます。
++ 3-1.composerを利用してWebPayのPHPライブラリ(https://webpay.jp/docs/libraries#php)をインストールします。
+  + htdocs/includes/modules/payment/ に composer.json が同梱されているのでそれを利用します。成功すると、vendorディレクトリが作られます。
 
   ```
 	$ cd htdocs/includes/modules/payment/
 	$ php composer.phar install
   ```
 
-  ��WebPay��PHP���C�u�����ɂ��Ẵ��C�Z���X�K��� vendor/webpay/webpay/README.md ������ǂ��������B
-+ 3-2.WebPay��PHP���C�u����(https://webpay.jp/docs/libraries#php)����\�[�X�t�@�C���Q��zip�t�@�C���𗎂Ƃ��Ă��Ĕz�u���܂��B(webpay-php-full-2.2.2.zip �ɂ��Ă͓���m�F�ς݂ł�)
-  + htdocs/includes/modules/payment/ �Ƀ_�E�����[�h���� webpay-php-full-2.2.2.zip ���A�b�v���[�h��A�𓀂��� webpay-php-full �ƃ��l�[�����܂��B
+  ※WebPayのPHPライブラリについてのライセンス規約は vendor/webpay/webpay/README.md をご一読ください。
++ 3-2.WebPayのPHPライブラリ(https://webpay.jp/docs/libraries#php)からソースファイル群のzipファイルを落としてきて配置します。(webpay-php-full-2.2.2.zip については動作確認済みです)
+  + htdocs/includes/modules/payment/ にダウンロードした webpay-php-full-2.2.2.zip をアップロード後、解凍して webpay-php-full とリネームします。
 
   ```
 	$ unzip webpay-php-full-2.2.2.zip
 	$ mv webpay-php-full-2.2.2 webpay-php-full
   ```
 
-  ��WebPay��PHP���C�u�����ɂ��Ẵ��C�Z���X�K��� webpay-php-full/webpay/webpay/README.md ������ǂ��������B
-+ 4.Zen Cart�Ǘ���ʂɃ��O�C�����āu���W���[�����x������WebPay �N���W�b�g�J�[�h���ρv���C���X�g�[�����܂��B
-+ 5.�ҏW�́u���J�\���v�Ɓu����J���v��ݒ肵�܂��B
-  + WebPay�Ƀ��O�C�����āu���[�U�[�ݒ�v����API�L�[�ɏ����Ă�����e��ݒ肵�Ă��������B
-  ���̑��A�C�ӂŁu�K�p�n��v�u�I�[�_�[�X�e�[�^�X�v�u�\���̏��ԁv��ύX���܂��B
+  ※WebPayのPHPライブラリについてのライセンス規約は webpay-php-full/webpay/webpay/README.md をご一読ください。
++ 4.Zen Cart管理画面にログインして「モジュール＞支払い＞WebPay クレジットカード決済」をインストールします。
++ 5.編集の「公開可能鍵」と「非公開鍵」を設定します。
+  + WebPayにログインして「ユーザー設定」からAPIキーに書いてある内容を設定してください。
+  その他、任意で「適用地域」「オーダーステータス」「表示の順番」を変更します。
 
 
 ## Licence
