@@ -34,10 +34,10 @@ WebPay公式はこちら→ https://webpay.jp/
 
 **※ファイル・DBのバックアップを取っておくこと！**
 
-+ 1.https://github.com/ARK-Web/zencart_mod_webpay/ にアクセスして【Download ZIP】でダウンロードします。
++ 1.https://github.com/ark-web/zencart_mod_webpay/ にアクセスして【Download ZIP】でダウンロードします。
 + 2.zipを解凍して htdocs/includes/ 配下をZen Cartへアップロードします。
 + 3.composerを利用できる場合は3-1へ、利用できない場合は3-2に進みます。
-+ 3-1.composerを利用してWebPayのPHPライブラリ(https://webpay.jp/docs/libraries#php)をインストールします。
++ 3-1.composerを利用してWebPayのPHPライブラリ(https://webpay.jp/docs/libraries#php )をインストールします。
   + htdocs/includes/modules/payment/ に composer.json が同梱されているのでそれを利用します。成功すると、vendorディレクトリが作られます。
 
   ```
@@ -46,7 +46,7 @@ WebPay公式はこちら→ https://webpay.jp/
   ```
 
   ※WebPayのPHPライブラリについてのライセンス規約は vendor/webpay/webpay/README.md をご一読ください。
-+ 3-2.WebPayのPHPライブラリ(https://webpay.jp/docs/libraries#php)からソースファイル群のzipファイルを落としてきて配置します。(webpay-php-full-2.2.2.zip については動作確認済みです)
++ 3-2.WebPayのPHPライブラリ(https://webpay.jp/docs/libraries#php )からソースファイル群のzipファイルを落としてきて配置します。(webpay-php-full-2.2.2.zip については動作確認済みです)
   + htdocs/includes/modules/payment/ にダウンロードした webpay-php-full-2.2.2.zip をアップロード後、解凍して webpay-php-full とリネームします。
 
   ```
