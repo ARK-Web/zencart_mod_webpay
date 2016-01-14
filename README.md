@@ -60,10 +60,12 @@ WebPay公式はこちら→ https://webpay.jp/
   + WebPayにログインして「ユーザー設定」からAPIキーに書いてある内容を設定してください。
   その他、任意で「適用地域」「オーダーステータス」「表示の順番」を変更します。
 
+![WebPayのAPIキーをZen CartのWebPayモジュールへ登録する](https://raw.github.com/wiki/ARK-Web/zencart_mod_webpay/images/setup.png)
+
 
 ## Licence
 
-TBD
+GPL v.2
 
 
 ## Author
