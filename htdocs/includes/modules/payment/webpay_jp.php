@@ -87,7 +87,7 @@ class webpay_jp extends base {
 	}
 
 	function before_process() {
-		global $messageStack, $order;
+		global $messageStack, $order, $currencies;
 		
 		try {
 			if (is_readable(DIR_WS_MODULES .'payment/vendor/autoload.php')) {
@@ -109,7 +109,7 @@ class webpay_jp extends base {
 			
 			// トークン決済
 			$charge = $webpay->charge->create(array(
-				"amount"      => $order->info['total'],
+				"amount"      => $currencies->value($order->info['total']),
 				"currency"    => "jpy",
 				"customer"    => $customer->id,
 				"description" => $order->products[0]['model'] 
